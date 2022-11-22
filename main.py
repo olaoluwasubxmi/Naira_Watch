@@ -28,6 +28,7 @@ dollar_naira_rate = yahooFinance.Ticker("USDNGN=X").info['regularMarketPrice']
 ethereum_dollar_rate = yahooFinance.Ticker("ETH-USD").info['regularMarketPrice']
 ethereum_naira_rate = ethereum_dollar_rate * dollar_naira_rate
 
+
 # get bitcoin dollar rate and convert to naira
 bitcoin_dollar_rate = currency("USD")
 bitcoin_naira_rate = bitcoin_dollar_rate * dollar_naira_rate
@@ -64,22 +65,20 @@ Bnb_rate = (f"1 BNB = ₦{bnb_naira_rate} ")
 Solana_rate = (f"1 SOLANA = ₦{solana_naira_rate} ")
 Usdt_rate = (f"1 USDT = ₦{usdt_naira_rate} ")
 Doge_rate = (f"1 DOGE = ₦{doge_naira_rate} ")
-Usdc_rate = (f"1 USDC = ₦{usdc_naira_rate} ")
+Usdc_rate = (f"1 USDC = ₦{usdc_naira_rate}")
 
+
+
+#post_tweet
+
+#post_tweet()
 
 
 # Create a tweet with dollar rate euro rate and ethereum rate and bitcoin rate and bnb rate and solana rate and usdt rate and doge rate and usdc rate with today's date
 
 def post_tweet():
-   tweets = api.user_timeline(screen_name = "watchingnaira")
-   the_message = ("Todays Naira rate "f"{date.today()} \n {Dollar_rate} \n {Euro_rate} \n {Ethereum_rate} \n {Bitcoin_rate} \n {Bnb_rate} \n {Solana_rate} \n {Usdt_rate} \n {Doge_rate} \n {Usdc_rate}")
-   api.update_status(the_message)
-
-
-
-
-#post tweet
+   tweets = api.user_timeline(screen_name = "Watching Naira")
+   #print all the rates and post it
+   api.update_status(f"{today} {Dollar_rate} {Euro_rate} {Ethereum_rate} {Bitcoin_rate} {Bnb_rate} {Solana_rate} {Usdt_rate} {Doge_rate} {Usdc_rate}")
+   print("tweeted")
 post_tweet()
-
-
-
